@@ -1,0 +1,15 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee()">
+  <h3>Create Employee</h3>
+  <label for="name">Name</label>
+  <input required id="name" #name="ngModel" type="text" name="name" [(ngModel)]="employee.name">
+  <span *ngIf="name.invalid && name.touched">Name required</span>
+  <br /><br />
+
+  <label for="phoneNumber">Phone Number</label>
+  <input id="phoneNumber" required #phoneNumber="ngModel" type="text"
+    name="phoneNumber" [(ngModel)]="employee.phoneNumber">
+  <span *ngIf="phoneNumber.invalid">phoneNumber required</span>
+  <br /><br />
+
+  <button type="submit" [disabled]="employeeForm.invalid">Save</button>
+</form>
